@@ -27,14 +27,14 @@ const stats = [
 		<div class="mx-auto max-w-7xl">
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 px-4 py-10">
 				<!-- Left Column -->
-				<div class="lg:col-span-8 relative">
-					<div class="max-w-xl">
-						<h1 class="text-6xl font-bold text-[#b42026] mb-6">Contact Us</h1>
-						<p class="text-xl font-light leading-relaxed mb-8">
+				<div class="lg:col-span-8 relative z-20">
+					<div class="max-w-xl relative z-20">
+						<h1 class="text-6xl font-bold text-[#b42026] mb-6 relative z-20">Contact Us</h1>
+						<p class="text-xl font-light leading-relaxed mb-8 relative z-20">
 							Please contact us if you would like to arrange a free 20-minutes call. We will be delighted if we can consult to know your requirements exactly and suggest the best solutions in stone industrial from Vietnam.
 						</p>
 
-						<div class="border-2 border-dashed border-[#b42026] rounded-lg p-6 mb-8">
+						<div class="border-2 border-dashed border-[#b42026] rounded-lg p-6 mb-8 bg-white/90 relative z-20">
 							<h3 class="text-xl font-semibold text-[#b42026] mb-4">{stats[0].title}</h3>
 							<div class="space-y-4">
 								<div class="flex items-center gap-3">
@@ -57,7 +57,7 @@ const stats = [
 					</div>
 
 					<!-- Map Image -->
-					<div class="absolute top-[110px] right-0 z-[1]">
+					<div class="absolute top-[110px] right-0 z-10">
 						<img 
 							src="/images/maryland.webp" 
 							alt="maryland map solomon" 
@@ -65,7 +65,7 @@ const stats = [
 							width={900}
 						/>
 					</div>
-					<div class="absolute top-[200px] right-[400px] z-[3]">
+					<div class="absolute top-[200px] right-[400px] z-30">
 						<a href={stats[0].googlemap} target="_blank" rel="noopener noreferrer">
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
 								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -79,7 +79,7 @@ const stats = [
 					<div class="bg-white rounded-lg shadow-lg border border-gray-100" 
 						style={{ 
 							background: "#fff", 
-							zIndex: "5", 
+							zIndex: "20", 
 							border: "solid 1px #0d0d0d0d", 
 							borderRadius: "8px", 
 							padding: "20px", 
