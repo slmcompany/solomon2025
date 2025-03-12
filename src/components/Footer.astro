@@ -13,6 +13,31 @@ const locations = [
 		address: 'Dong Xuan Commune, Dong Hung District, Thai Binh Province, Viet Nam'
 	}
 ]
+
+const links = [
+	{
+		title: 'Links',
+		items: [
+			{ name: 'Home', href: '/' },
+			{ name: 'About', href: '/about-us' },
+			{ name: 'Contact', href: '/contact-us' },
+			{ name: 'Privacy Policy', href: '/privacy-policy' },
+			{ name: 'Terms of Service', href: '/terms-of-service' },
+			{ name: 'Cookie Policy', href: '/cookie-policy' }
+		]
+	},
+	{
+		title: 'Products',
+		items: [
+			{ name: 'Metal Casting', href: '/products/metal-casting' },
+			{ name: 'Metal Fabrication', href: '/products/metal-fabrication' },
+			{ name: 'Ground Screws', href: '/products/ground-screws' },
+			{ name: 'Quartz Stone', href: '/products/quartz-stone' },
+			{ name: 'Rubber', href: '/products/rubber' },
+			{ name: 'Plywood', href: '/products/plywood' }
+		]
+	}
+]
 ---
 
 <footer class="bg-gray-900" aria-labelledby="footer-heading">
@@ -79,37 +104,21 @@ const locations = [
 				</dl>
 			</div>
 			<div class="mt-8 xl:mt-0">
-				<div class="space-y-6">
-					<div class="flex gap-x-4">
-						<dd class="uppercase text-white font-medium">FACTORIES LOCATION</dd>
-					</div>
-					{
-						locations.map((location) => (
-							<div class="relative flex items-start space-x-3 rounded-lg p-4 hover:bg-gray-800/50 transition-colors">
-								<div class="flex-shrink-0">
-									<svg
-										width="22"
-										height="20"
-										viewBox="0 0 22 20"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										class="h-7 w-6 text-white"
-									>
-										<path
-											d="M21.5 19.25C21.5 19.4489 21.421 19.6397 21.2803 19.7803C21.1397 19.921 20.9489 20 20.75 20H1.25C1.05109 20 0.860322 19.921 0.71967 19.7803C0.579018 19.6397 0.5 19.4489 0.5 19.25C0.5 19.0511 0.579018 18.8603 0.71967 18.7197C0.860322 18.579 1.05109 18.5 1.25 18.5H2V7.25C2 7.11072 2.03879 6.97418 2.11201 6.8557C2.18524 6.73722 2.29001 6.64147 2.41459 6.57918C2.53917 6.51689 2.67863 6.49052 2.81735 6.50303C2.95608 6.51554 3.08857 6.56643 3.2 6.65L8 10.25V7.25C8 7.11072 8.03879 6.97418 8.11201 6.8557C8.18524 6.73722 8.29001 6.64147 8.41459 6.57918C8.53917 6.51689 8.67863 6.49052 8.81735 6.50303C8.95608 6.51554 9.08857 6.56643 9.2 6.65L12.8319 9.37344L13.9156 1.78813C13.9681 1.43127 14.1468 1.10506 14.4193 0.868712C14.6917 0.632364 15.0399 0.501544 15.4006 0.5H17.0994C17.4601 0.501544 17.8083 0.632364 18.0807 0.868712C18.3532 1.10506 18.5319 1.43127 18.5844 1.78813L19.9906 11.6441C19.9906 11.6441 19.9981 11.7172 19.9981 11.75V18.5H20.7481C20.8468 18.4998 20.9445 18.519 21.0357 18.5566C21.1269 18.5941 21.2098 18.6493 21.2797 18.719C21.3495 18.7887 21.4049 18.8714 21.4427 18.9626C21.4805 19.0537 21.5 19.1514 21.5 19.25ZM14.2006 10.4L15.0003 11H18.3856L17.0994 2H15.4006L14.2006 10.4ZM3.5 18.5H18.5V12.5H14.75C14.5877 12.5 14.4298 12.4474 14.3 12.35L12.95 11.3375L9.5 8.75V11.75C9.5 11.8893 9.46121 12.0258 9.38799 12.1443C9.31476 12.2628 9.20999 12.3585 9.08541 12.4208C8.96083 12.4831 8.82137 12.5095 8.68265 12.497C8.54392 12.4845 8.41143 12.4336 8.3 12.35L3.5 8.75V18.5Z"
-											fill="white"
-										/>
-									</svg>
-								</div>
-								<div class="min-w-0 flex-1">
-									<div class="focus:outline-none">
-										<p class="text-sm font-semibold capitalize text-white">{location.name}</p>
-										<p class="mt-1 text-sm text-gray-300">{location.address}</p>
-									</div>
-								</div>
-							</div>
-						))
-					}
+				<div class="grid grid-cols-2 gap-8">
+					{links.map((section) => (
+						<div>
+							<h3 class="text-sm font-semibold leading-6 text-white">{section.title}</h3>
+							<ul role="list" class="mt-6 space-y-4">
+								{section.items.map((item) => (
+									<li>
+										<a href={item.href} class="text-sm leading-6 text-gray-300 hover:text-white">
+											{item.name}
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>
@@ -118,7 +127,7 @@ const locations = [
 			<div class="flex items-center space-x-6 md:order-2">
 			</div>
 			<p class="mt-8 text-center text-sm leading-5 text-gray-400 md:order-1 md:mt-0">
-				&copy; 2020 SOLOMON INDUSTRIES LLC. All rights reserved.
+				© 2025 SOLOMON INDUSTRIES LLC. ALL RIGHTS RESERVED.
 			</p>
 		</div>
 	</div>

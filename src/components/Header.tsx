@@ -3,15 +3,15 @@ import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react'
 import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-	{ name: 'Ground screws', href: '/ground-screws' },
+	{ name: 'Metal Casting', href: '/metal-casting' },
+	{ name: 'Metal Fabrication', href: '/metal-fabrication' },
+	{ name: 'Ground Screws', href: '/ground-screws' },
 	{ name: 'Quartz stone', href: '/quartz-stone' },
 	{ name: 'Rubber', href: '/rubber' },
 	{ name: 'Plywood', href: '/plywood' },
-	{ name: 'Metal Casting', href: '/metal-casting' },
-	{ name: 'Metal Fabrication', href: '/metal-fabrication' },
-	{ name: 'About us', href: '/about-us' },
+	{ name: 'About Us', href: '/about-us' },
 	// { name: "Media", href: "/media" },
-	{ name: 'Contact us', href: '/contact-us' }
+	{ name: 'Contact Us', href: '/contact-us' }
 ]
 
 const mobilenavigation: {
@@ -27,7 +27,17 @@ const mobilenavigation: {
 		heading: 'Products',
 		submenu: [
 			{
-				title: 'Ground screws',
+				title: 'Metal Casting',
+				link: '/metal-casting',
+				icon: ''
+			},
+			{
+				title: 'Metal Fabrication',
+				link: '/metal-fabrication',
+				icon: ''
+			},
+			{
+				title: 'Ground Screws',
 				link: '/ground-screws',
 				icon: ''
 			},
@@ -36,7 +46,6 @@ const mobilenavigation: {
 				link: '/quartz-stone',
 				icon: ''
 			},
-
 			{
 				title: 'Rubber',
 				link: '/rubber',
@@ -53,7 +62,7 @@ const mobilenavigation: {
 		heading: 'Company',
 		submenu: [
 			{
-				title: 'About us',
+				title: 'About Us',
 				link: '/about-us',
 				icon: ''
 			},
@@ -63,7 +72,7 @@ const mobilenavigation: {
 			//   icon: "",
 			// },
 			{
-				title: 'Contact',
+				title: 'Contact Us',
 				link: '/',
 				icon: ''
 			}
@@ -78,12 +87,12 @@ export default function Example() {
 		<header className="fixed isolate z-10 w-full bg-white bg-opacity-70 bg-clip-padding backdrop-blur-sm backdrop-filter md:relative md:bg-white">
 			<nav
 				aria-label="Global"
-				className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
+				className="mx-auto flex container items-center justify-between p-4 lg:px-8"
 			>
 				<div className="flex w-1/4">
 					<a href="/" className="-m-1.5">
 						<span className="sr-only">SoLarMax</span>
-						<img alt="" src="/images/logo-solomon-2025.png" className="h-8 w-auto lg:h-8" />
+						<img alt="" src="/images/logo-solomon.png" className="h-12 w-auto lg:h-12" />
 					</a>
 				</div>
 
@@ -112,7 +121,7 @@ export default function Example() {
 					</button>
 				</div>
 
-				<PopoverGroup className="hidden w-3/4 lg:flex lg:gap-x-12 lg:justify-end">
+				<PopoverGroup className="hidden w-3/4 lg:flex lg:gap-x-6 lg:justify-end">
 					{navigation.map((item) => (
 						<a
 							key={item.name}
@@ -136,7 +145,7 @@ export default function Example() {
 					<div className="flex items-center justify-between">
 						<a href="/" className="-m-1.5 p-1.5">
 							<span className="sr-only">SoLarMax</span>
-							<img alt="" src="/images/logo-solomon-2025.png" className="h-8 w-auto" />
+							<img alt="" src="/images/logo-solomon.png" className="h-12 w-auto" />
 						</a>
 						<button
 							type="button"
@@ -209,7 +218,7 @@ export default function Example() {
 											</div>
 										</div>
 									))}
-									{/* <div style={{margin:"15px 10px 10px 10px", borderRadius:"10px", position: 'relative', paddingBottom: '53.25%', height: 0, overflow: 'hidden', maxWidth: '100%', background: '#000' }}>
+									{/* <div style={{margin:"15px 10px 10px 10px", borderRadius:"10px", position: 'relative', paddingBottom: '53.25%', height: 0, overflow: 'hidden', container: '100%', background: '#000' }}>
   <iframe
     width="560"
     height="315"
