@@ -27,18 +27,20 @@ const links = [
 ---
 
 <footer class="bg-gray-900" aria-labelledby="footer-heading">
-	<div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-20 lg:px-8 lg:pt-16">
+	<div class="mx-auto container px-6 pb-8 pt-16 sm:pt-20 lg:px-8 lg:pt-16">
 		<div class="xl:grid xl:grid-cols-2 xl:gap-12">
 			<div class="space-y-8">
-				<h1 class="text-3xl text-white font-semibold">SOLOMON INDUSTRIES LLC</h1>
+				<div>
+					<img src="/images/logo-solomon-white.png" alt="SOLOMON INDUSTRIES LLC" class="h-12 w-auto" />
+				</div>
 				<dl class="space-y-6 text-base leading-7 text-white">
 					<div class="flex gap-x-4">
-						<dd class="text-white font-medium">HEAD OFFICE</dd>
+						<dd class="text-xl text-white font-bold">SOLOMON INDUSTRIES LLC</dd>
 					</div>
 					<div class="flex gap-x-4 items-center">
 						<dt class="flex-none">
 							<svg
-								class="h-7 w-6 text-white"
+								class="h-6 w-6 text-white"
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke-width="1.5"
@@ -52,24 +54,24 @@ const links = [
 								></path>
 							</svg>
 						</dt>
-						<dd class="text-white">
+						<dd class="text-base text-white">
 							8512 Dakota Dr, Gaithersburg MD 20877
 						</dd>
 					</div>
 					<div class="flex gap-x-4 items-center">
 						<dt class="flex-none">
 							<span class="sr-only">Phone</span>
-							<img src="/images/whatsapp-svgrepo-com.svg" class="h-7 w-6" />
+							<img src="/images/whatsapp-svgrepo-com.svg" class="h-6 w-6" />
 						</dt>
 						<dd>
-							<a class="text-white hover:text-gray-300" href="https://wa.me/13016055600">+1 (301) 605-5600</a>
+							<a class="text-base text-white hover:text-gray-300" href="https://wa.me/13016055600">+1 (301) 605-5600</a>
 						</dd>
 					</div>
 					<div class="flex gap-x-4 items-center">
 						<dt class="flex-none">
 							<span class="sr-only">Email</span>
 							<svg
-								class="h-7 w-6 text-white"
+								class="h-6 w-6 text-white"
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke-width="1.5"
@@ -84,20 +86,20 @@ const links = [
 							</svg>
 						</dt>
 						<dd>
-							<a class="text-white hover:text-gray-300" href="mailto:hiep@solomonindustries.us">hiep@solomonindustries.us</a>
+							<a class="text-base text-white hover:text-gray-300" href="mailto:hiep@solomonindustries.us">hiep@solomonindustries.us</a>
 						</dd>
 					</div>
 				</dl>
 			</div>
 			<div class="mt-8 xl:mt-0">
-				<div class="grid grid-cols-2 gap-8">
+				<div class="hidden md:grid md:grid-cols-2 md:gap-8">
 					{links.map((section) => (
 						<div>
-							<h3 class="text-sm font-semibold leading-6 text-white">{section.title}</h3>
+							<h3 class="text-base font-semibold leading-6 text-white">{section.title}</h3>
 							<ul role="list" class="mt-6 space-y-4">
 								{section.items.map((item) => (
 									<li>
-										<a href={item.href} class="text-sm leading-6 text-gray-300 hover:text-white">
+										<a href={item.href} class="text-base leading-6 text-gray-300 hover:text-white">
 											{item.name}
 										</a>
 									</li>

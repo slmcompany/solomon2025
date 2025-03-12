@@ -5,21 +5,24 @@ const { products, featuretitle } = Astro.props;
 <div class="bg-slate-100 pb-28">
     <div class="pt-6 py-4">
         <div class="container mx-auto">
-            <h1 class="text-6xl text-red-700 py-10 text-left ml-0 px-6 hidden lg:hidden sm:block">
+            <h1 class="text-3xl md:text-4xl lg:text-6xl text-red-700 py-5 md:py-10 text-left px-6 whitespace-nowrap overflow-hidden text-ellipsis block sm:hidden font-bold">
                 {featuretitle}
             </h1>
-            <h1 class="text-6xl text-red-700 py-10 text-center mx-auto block lg:block sm:hidden">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl text-red-700 py-10 text-left ml-0 px-6 hidden sm:block lg:hidden font-bold">
+                {featuretitle}
+            </h1>
+            <h1 class="text-6xl text-red-700 py-10 text-center mx-auto hidden lg:block font-bold">
                 {featuretitle}
             </h1>
         </div>
         <div class="container mx-auto px-6 lg:px-8">
             <ul
                 role="list"
-                class="grid grid-cols-1 xl:gap-4 gap-8 md:grid-cols-3 xl:grid-cols-6"
+                class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory sm:grid sm:grid-cols-1 sm:overflow-visible md:grid-cols-3 xl:grid-cols-6 xl:gap-4"
             >
                 {
                     products.map((product: any) => (
-                        <li class="rounded-2xl bg-red-700 xl:px-2 xl:py-2 px-2 py-2">
+                        <li class="rounded-2xl bg-red-700 xl:px-2 xl:py-2 px-2 py-2 flex-shrink-0 w-[80%] snap-center sm:w-full">
                             <ul
                                 role="list"
                                 class="my-2 flex justify-between gap-x-2"

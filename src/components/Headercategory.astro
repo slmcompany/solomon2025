@@ -2,11 +2,11 @@
 const { title, content, imglink } = Astro.props;
 ---
 
-<div class="bg-white pt-14 xl:hidden lg:hidden md:hidden">
+<div class="bg-white  xl:hidden lg:hidden md:hidden">
     <img src={imglink} alt={title} class="w-full object-cover h-[40vh]" />
 </div>
 <div class="overflow-hidden bg-red-700 py-12 sm:py-24 lg:py-32">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto container px-4 sm:px-6 lg:px-8">
         <div
             class="grid grid-cols-1 gap-x-12 gap-y-12 sm:gap-y-16 lg:grid-cols-2 lg:items-center"
         >

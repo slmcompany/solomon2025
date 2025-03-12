@@ -6,89 +6,101 @@ import Image from 'astro/components/Image.astro'
 
 <Layout title="About Us">
     <div class="relative">
-        <img src="/images/shipping-and-importing-header.jpg" alt="About Us Header" class="w-full h-[400px] object-cover"/>
+        <img src="/images/shipping-and-importing-header.jpg" alt="About Us Header" class="w-full h-[300px] md:h-[400px] object-cover"/>
         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <h1 class="text-white text-5xl font-light">About Us</h1>
+            <h1 class="text-white text-3xl md:text-5xl font-light">About Us</h1>
         </div>
     </div>
 
-    <div class="bg-[#b42026] -mt-12">
-        <div class="mx-auto max-w-[800px] min-h-[500px] flex items-center px-8">
-            <p class="text-white text-2xl font-light text-center leading-relaxed">
+    <div class="bg-[#b42026]">
+        <div class="mx-auto max-w-7xl min-h-[250px] md:min-h-[400px] flex items-center px-4 md:px-8 py-8 md:py-0 relative">
+            <span class="absolute text-white opacity-30 text-8xl md:text-9xl font-serif top-8 left-8 md:left-12 leading-none">"</span>
+            <p class="text-white text-lg md:text-2xl font-light text-center leading-relaxed z-10">
                 Solomon Industries LLC specializes in high-quality industrial materials, delivering innovative solutions for manufacturing and construction. With expertise in metal casting, fabrication, ground screws, quartz stone, rubber, and plywood, we provide durable and efficient materials that power industries worldwide. Our commitment to excellence ensures reliable products for structural, mechanical, and industrial applications.
             </p>
+            <span class="absolute text-white opacity-30 text-8xl md:text-9xl font-serif bottom-8 right-8 md:right-12 leading-none">"</span>
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-8 py-12">
-        <h2 class="text-[#b42026] text-4xl font-bold uppercase mb-6">Core Values</h2>
-        <p class="text-[#b42026] text-2xl font-light mb-8 leading-relaxed">
+    <div class="w-full bg-gray-50 mx-auto px-4 md:px-8 pt-6 pb-12">
+        <h2 class="text-[#b42026] text-3xl md:text-4xl font-bold uppercase mb-4 md:mb-6 text-center">Core Values</h2>
+        <p class="text-[#b42026] text-xl md:text-2xl font-light mb-8 md:mb-12 leading-relaxed text-center max-w-5xl mx-auto">
             With a vision for the future and a commitment to continuous improvement, we provide high-quality industrial materials with innovation, sustainability, and reliability at our core.
         </p>
 
-        <hr class="border-gray-200 my-8"/>
-
-        <div class="space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <div class="md:col-span-1">
-                    <h3 class="text-[#b42026] text-2xl">Innovation</h3>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mt-4 md:mt-6">
+            <!-- Innovation Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 border-[#b42026]">
+                <div class="flex justify-center mb-2 md:mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 text-[#b42026]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
                 </div>
-                <div class="md:col-span-4 md:pl-[72px]">
-                    <p class="text-[#b42026] text-xl font-light">
-                        We are constantly pushing boundaries to develop cutting-edge solutions in metal fabrication, ground screws, quartz stone, rubber, and plywood. Our commitment to innovation ensures that industries receive the most advanced and efficient materials.
-                    </p>
-                </div>
+                <h3 class="text-[#b42026] text-xl md:text-2xl font-semibold text-center mb-2 md:mb-4">Innovation</h3>
+                <p class="text-gray-700 text-base md:text-lg text-center">
+                    We are constantly pushing boundaries to develop cutting-edge solutions in metal fabrication, ground screws, quartz stone, rubber, and plywood. Our commitment to innovation ensures that industries receive the most advanced and efficient materials.
+                </p>
             </div>
 
-            <hr class="border-gray-200"/>
-
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <div class="md:col-span-1">
-                    <h3 class="text-[#b42026] text-2xl">Quality</h3>
+            <!-- Quality Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 border-[#b42026]">
+                <div class="flex justify-center mb-2 md:mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 text-[#b42026]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
                 </div>
-                <div class="md:col-span-4 md:pl-[72px]">
-                    <p class="text-[#b42026] text-xl font-light">
-                        Excellence and reliability define our products. We adhere to the highest standards to deliver durable, high-performance materials that meet the evolving demands of the industrial sector.
-                    </p>
-                </div>
+                <h3 class="text-[#b42026] text-xl md:text-2xl font-semibold text-center mb-2 md:mb-4">Quality</h3>
+                <p class="text-gray-700 text-base md:text-lg text-center">
+                    Excellence and reliability define our products. We adhere to the highest standards to deliver durable, high-performance materials that meet the evolving demands of the industrial sector.
+                </p>
             </div>
 
-            <hr class="border-gray-200"/>
-
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <div class="md:col-span-1">
-                    <h3 class="text-[#b42026] text-2xl">Expert Consulting</h3>
+            <!-- Expert Consulting Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 border-[#b42026]">
+                <div class="flex justify-center mb-2 md:mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 text-[#b42026]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                 </div>
-                <div class="md:col-span-4 md:pl-[72px]">
-                    <p class="text-[#b42026] text-xl font-light">
-                        We go beyond supplying materials—we act as trusted partners, understanding our clients' needs and offering expert guidance to help them choose the best solutions for their projects.
-                    </p>
-                </div>
+                <h3 class="text-[#b42026] text-xl md:text-2xl font-semibold text-center mb-2 md:mb-4">Expert Consulting</h3>
+                <p class="text-gray-700 text-base md:text-lg text-center">
+                    We go beyond supplying materials—we act as trusted partners, understanding our clients' needs and offering expert guidance to help them choose the best solutions for their projects.
+                </p>
             </div>
 
-            <hr class="border-gray-200"/>
-
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <div class="md:col-span-1">
-                    <h3 class="text-[#b42026] text-2xl">Sustainability</h3>
+            <!-- Sustainability Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 border-[#b42026]">
+                <div class="flex justify-center mb-2 md:mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 text-[#b42026]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                 </div>
-                <div class="md:col-span-4 md:pl-[72px]">
-                    <p class="text-[#b42026] text-xl font-light">
-                        Committed to responsible manufacturing, we prioritize sustainable materials and eco-friendly practices to reduce environmental impact while delivering top-tier industrial solutions.
-                    </p>
-                </div>
+                <h3 class="text-[#b42026] text-xl md:text-2xl font-semibold text-center mb-2 md:mb-4">Sustainability</h3>
+                <p class="text-gray-700 text-base md:text-lg text-center">
+                    Committed to responsible manufacturing, we prioritize sustainable materials and eco-friendly practices to reduce environmental impact while delivering top-tier industrial solutions.
+                </p>
             </div>
 
-            <hr class="border-gray-200"/>
-
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <div class="md:col-span-1">
-                    <h3 class="text-[#b42026] text-2xl">Partnership</h3>
+            <!-- Partnership Card -->
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 border-[#b42026]">
+                <div class="flex justify-center mb-2 md:mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12 text-[#b42026]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
                 </div>
-                <div class="md:col-span-4 md:pl-[72px]">
-                    <p class="text-[#b42026] text-xl font-light">
-                        Success is built on collaboration. We foster strong, long-term relationships with clients, suppliers, and industry partners to drive mutual growth and innovation.
-                    </p>
+                <h3 class="text-[#b42026] text-xl md:text-2xl font-semibold text-center mb-2 md:mb-4">Partnership</h3>
+                <p class="text-gray-700 text-base md:text-lg text-center">
+                    Success is built on collaboration. We foster strong, long-term relationships with clients, suppliers, and industry partners to drive mutual growth and innovation.
+                </p>
+            </div>
+            
+            <!-- Metal Alloy Casting Card -->
+            <div class="bg-white rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 border-[#b42026] overflow-hidden">
+                <div class="h-48 md:h-full relative">
+                    <img src="/images/Capabilities-400x267.jpg" alt="Metal Alloy Capabilities" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+                        <img src="/images/logo-solomon-white.png" alt="Solomon Industries Logo" class="w-1/2 max-w-[200px]"/>
+                    </div>
                 </div>
             </div>
         </div>
