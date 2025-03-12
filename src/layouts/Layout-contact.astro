@@ -7,7 +7,7 @@ interface Props {
 const { title } = Astro.props;
 import Callbox from "../components/Callbox.tsx";
 import { ViewTransitions } from "astro:transitions";
-import "@fontsource/twinkle-star";
+import "@fontsource/roboto-flex";
 ---
 
 <html lang="vi">
@@ -46,28 +46,6 @@ import "@fontsource/twinkle-star";
     </body>
 </html>
 <style is:global>
-    @font-face {
-        font-family: "Barlow-Regular";
-        src: url("/fonts/Barlow-Regular.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: "Barlow-Bold";
-        src: url("/fonts/Barlow-Bold.ttf") format("truetype");
-        font-weight: bold;
-        font-style: bold;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: "Barlow-SemiBold";
-        src: url("/fonts/Barlow-SemiBold.ttf") format("truetype");
-        font-weight: medium;
-        font-style: medium;
-        font-display: swap;
-    }
-
     :root {
         --accent: 136, 58, 234;
         --accent-light: 224, 204, 250;
@@ -81,12 +59,12 @@ import "@fontsource/twinkle-star";
     }
 
     html {
-        font-family: "Barlow-Regular", system-ui, sans-serif;
+        font-family: "Roboto Flex", system-ui, sans-serif;
         background: #13151a;
         background-size: 224px;
     }
     h1 {
-        font-family: "Barlow-Bold", system-ui, sans-serif;
+        font-family: "Roboto Flex", system-ui, sans-serif;
         font-size: 2.5rem;
         color: white;
     }

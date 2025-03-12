@@ -13,7 +13,7 @@
 
       .cls-3 {
         fill: #5f6060;
-        font-family: BarlowCondensed-Light, 'Barlow Condensed';
+        font-family: 'Roboto Flex', sans-serif;
         font-size: 35.52px;
         font-weight: 300;
       }

@@ -570,10 +570,10 @@
   resolved "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.2.5.tgz"
   integrity sha512-sTcG+QZ6fdEUObICavU+aB3Mp8HY4n14wYHdxK4fXjPmv3PXZZeY5RaguJmGyeH/CJQhX3fqKUtS4qc1LoHwhQ==
 
-"@fontsource/twinkle-star@^5.0.20":
-  version "5.0.20"
-  resolved "https://registry.npmjs.org/@fontsource/twinkle-star/-/twinkle-star-5.0.20.tgz"
-  integrity sha512-kVuvs1ohuYOheEEWwwp/GsfGOnEML8W7GBcuo/iLk0GQs5sPVXcJalVjzeV11RIUiWTEg53rfVxhUIVG5v/xCQ==
+"@fontsource/roboto-flex@^5.2.5":
+  version "5.2.5"
+  resolved "https://registry.npmjs.org/@fontsource/roboto-flex/-/roboto-flex-5.2.5.tgz"
+  integrity sha512-P28Pr0Uz0W00DglLj7mc+VdE18rbhFQIzap7U23lHQ148p7+jdjrjT9QUlkVhD4DE/UjC/QXRlNjLkdBF6G2ww==
 
 "@headlessui/react@^2.1.2":
   version "2.1.2"

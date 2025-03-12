@@ -7,7 +7,7 @@ export default {
 	theme: {
 		extend: {
 			  fontFamily: {
-        sans: ['Barlow-Regular', ...defaultTheme.fontFamily.sans],
+        sans: ['Roboto Flex', ...defaultTheme.fontFamily.sans],
       },
 		},
 	},
