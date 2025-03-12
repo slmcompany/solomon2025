@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Image from 'astro/components/Image.astro'
+import Headercategory from '../../components/Headercategory.astro'
+
+const title = "Metal Casting Services"
+const content = "Solomon Industries LLC specializes in high-quality metal casting services, offering precision die casting, investment casting, and sand casting solutions. Our advanced facilities and experienced team ensure superior quality castings for various industries including automotive, aerospace, and industrial equipment manufacturing."
+
+const features = [
+    {
+        name: 'Die Casting',
+        description: 'High-pressure die casting for aluminum, zinc, and magnesium alloys with tight tolerances and excellent surface finish.',
+        icon: '/images/die-casting-icon.svg'
+    },
+    {
+        name: 'Investment Casting',
+        description: 'Precision investment casting for complex geometries and detailed components requiring superior surface quality.',
+        icon: '/images/investment-casting-icon.svg'
+    },
+    {
+        name: 'Sand Casting',
+        description: 'Traditional and automated sand casting processes for large components and prototype production.',
+        icon: '/images/sand-casting-icon.svg'
+    }
+]
+
+const capabilities = [
+    "Aluminum die casting up to 5kg",
+    "Zinc die casting up to 2kg",
+    "Investment casting for steel and stainless steel",
+    "Sand casting for iron and non-ferrous alloys",
+    "Secondary operations including machining and surface finishing",
+    "Quality control and material testing",
+    "Prototype to high-volume production"
+]
+---
+
+<Layout title={title}>
+    <Headercategory 
+        title={title}
+        content={content}
+        imglink="/images/metal-casting/header.jpg"
+    />
+
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:text-center">
+                <h2 class="text-base font-semibold leading-7 text-red-600">Advanced Capabilities</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    Comprehensive Metal Casting Solutions
+                </p>
+                <p class="mt-6 text-lg leading-8 text-gray-600">
+                    Our state-of-the-art facilities and experienced team provide a wide range of metal casting services to meet your specific requirements.
+                </p>
+            </div>
+            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                    {features.map(feature => (
+                        <div class="flex flex-col">
+                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                                <img src={feature.icon} alt={feature.name} class="h-5 w-5 flex-none text-red-600" />
+                                {feature.name}
+                            </dt>
+                            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                                <p class="flex-auto">{feature.description}</p>
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-50 py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
+                <div class="mx-auto w-full max-w-xl lg:mx-0">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900">Capabilities & Specifications</h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-600">
+                        Our comprehensive metal casting capabilities allow us to handle projects of various sizes and complexities.
+                    </p>
+                    <div class="mt-8 max-w-xl text-base leading-7 text-gray-600">
+                        <ul role="list" class="mt-8 space-y-4 text-gray-600">
+                            {capabilities.map(capability => (
+                                <li class="flex gap-x-3">
+                                    <svg class="h-7 w-5 flex-none text-red-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                                    </svg>
+                                    {capability}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                <div class="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
+                    <img class="w-full h-64 object-cover rounded-lg shadow-lg" src="/images/metal-casting/die-casting-1.jpg" alt="Die Casting Process" />
+                    <img class="w-full h-64 object-cover rounded-lg shadow-lg" src="/images/metal-casting/investment-casting-1.jpg" alt="Investment Casting" />
+                    <img class="w-full h-64 object-cover rounded-lg shadow-lg" src="/images/metal-casting/sand-casting-1.jpg" alt="Sand Casting" />
+                    <img class="w-full h-64 object-cover rounded-lg shadow-lg" src="/images/metal-casting/process-4.jpg" alt="Quality Control" />
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout> 

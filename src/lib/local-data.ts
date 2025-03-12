@@ -14,19 +14,19 @@ const DATA_DIR = path.join(process.cwd(), 'src', 'data');
  * @returns - Dữ liệu parsed từ file JSON
  */
 export function readLocalData<T>(filename: string): T {
+  const filePath = path.join(DATA_DIR, `${filename}.json`);
+  
+  // Kiểm tra xem file có tồn tại không
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`File not found: ${filePath}`);
+  }
+  
   try {
-    const filePath = path.join(DATA_DIR, `${filename}.json`);
-    
-    // Kiểm tra xem file có tồn tại không
-    if (!fs.existsSync(filePath)) {
-      throw new Error(`Không tìm thấy file dữ liệu: ${filePath}`);
-    }
-    
     // Đọc và parse dữ liệu
     const data = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(data) as T;
   } catch (error) {
-    console.error(`Lỗi khi đọc dữ liệu từ file ${filename}.json:`, error);
+    console.error(`Error reading data from ${filename}.json:`, error);
     throw error;
   }
 }
@@ -35,7 +35,12 @@ export function readLocalData<T>(filename: string): T {
  * Lấy tất cả sản phẩm
  */
 export function getAllProducts(): Products[] {
-  return readLocalData<Products[]>('products');
+  try {
+    return readLocalData<Products[]>('products');
+  } catch (error) {
+    console.error('Error reading products data:', error);
+    return [];
+  }
 }
 
 /**
@@ -65,10 +70,12 @@ export function getAllArticles(): Article[] {
  */
 export function getProductsByCategory(category: string): Products[] {
   try {
+    // Thử đọc từ file riêng trước
     return readLocalData<Products[]>(`products-${category}`);
   } catch (error) {
     // Nếu không tìm thấy file danh mục, lọc từ tất cả sản phẩm
-    return getAllProducts().filter(
+    const allProducts = getAllProducts();
+    return allProducts.filter(
       product => product.attributes.category === category
     );
   }

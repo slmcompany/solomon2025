@@ -7,6 +7,8 @@ const navigation = [
 	{ name: 'Quartz stone', href: '/quartz-stone' },
 	{ name: 'Rubber', href: '/rubber' },
 	{ name: 'Plywood', href: '/plywood' },
+	{ name: 'Metal Casting', href: '/metal-casting' },
+	{ name: 'Metal Fabrication', href: '/metal-fabrication' },
 	{ name: 'About us', href: '/about-us' },
 	// { name: "Media", href: "/media" },
 	{ name: 'Contact us', href: '/contact-us' }
@@ -78,15 +80,15 @@ export default function Example() {
 				aria-label="Global"
 				className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
 			>
-				<div className="flex lg:flex-1">
+				<div className="flex w-1/4">
 					<a href="/" className="-m-1.5">
 						<span className="sr-only">SoLarMax</span>
-						<img alt="" src="/images/slmglobal-logo.svg" className="h-8 w-auto lg:h-8" />
+						<img alt="" src="/images/logo-solomon-2025.png" className="h-8 w-auto lg:h-8" />
 					</a>
 				</div>
 
 				<div className="flex items-center space-x-6 md:order-2">
-					<a
+					{/* <a
 						href="https://slmglobal.trustpass.alibaba.com/"
 						className="text-gray-900 hover:text-gray-400"
 						target="_blank"
@@ -96,7 +98,7 @@ export default function Example() {
 							<img className="" src="/images/alibaba-svgrepo-com.svg" />
 							<span className="text-nowrap font-bold">Find us on Alibaba</span>
 						</div>
-					</a>
+					</a> */}
 				</div>
 
 				<div className="flex lg:hidden">
@@ -110,19 +112,19 @@ export default function Example() {
 					</button>
 				</div>
 
-				<PopoverGroup className="hidden lg:flex lg:gap-x-12">
+				<PopoverGroup className="hidden w-3/4 lg:flex lg:gap-x-12 lg:justify-end">
 					{navigation.map((item) => (
 						<a
 							key={item.name}
 							href={item.href}
-							className="text-sm font-semibold leading-6 text-gray-900"
+							className="text-sm font-semibold leading-6 text-gray-900 whitespace-nowrap"
 						>
 							{item.name}
 						</a>
 					))}
 				</PopoverGroup>
 
-				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
+				<div className="hidden lg:flex lg:justify-end">
 					{/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
 						Login <span aria-hidden="true">&rarr;</span>
 					</a> */}
@@ -134,7 +136,7 @@ export default function Example() {
 					<div className="flex items-center justify-between">
 						<a href="/" className="-m-1.5 p-1.5">
 							<span className="sr-only">SoLarMax</span>
-							<img alt="" src="/images/slmglobal-logo.svg" className="h-8 w-auto" />
+							<img alt="" src="/images/logo-solomon-2025.png" className="h-8 w-auto" />
 						</a>
 						<button
 							type="button"

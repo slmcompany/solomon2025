@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Image from 'astro/components/Image.astro'
+import Headercategory from '../../components/Headercategory.astro'
+
+const title = "Metal Fabrication Services"
+const content = "Solomon Industries LLC provides comprehensive metal fabrication services with state-of-the-art CNC machining capabilities. Our expertise spans precision cutting, forming, welding, and assembly for various industries including manufacturing, construction, and industrial equipment."
+
+const features = [
+    {
+        name: 'CNC Machining',
+        description: 'Advanced CNC machining centers for precise milling, turning, and drilling operations with tight tolerances.',
+        icon: '/images/cnc-machining-icon.svg'
+    },
+    {
+        name: 'Sheet Metal Fabrication',
+        description: 'Complete sheet metal fabrication services including cutting, bending, forming, and welding.',
+        icon: '/images/sheet-metal-icon.svg'
+    },
+    {
+        name: 'Welding & Assembly',
+        description: 'Expert welding services for various materials and comprehensive assembly capabilities.',
+        icon: '/images/welding-icon.svg'
+    }
+]
+
+const capabilities = [
+    "CNC milling and turning with 5-axis capability",
+    "Precision sheet metal fabrication",
+    "MIG, TIG, and spot welding",
+    "Custom metal fabrication and prototyping",
+    "Large-scale production capabilities",
+    "Quality control and inspection",
+    "Surface finishing and treatment"
+]
+
+const equipment = [
+    {
+        name: "CNC Machining Centers",
+        specs: "5-axis capability, up to 1000mm x 500mm x 500mm"
+    },
+    {
+        name: "CNC Turning Centers",
+        specs: "Up to 300mm diameter x 1000mm length"
+    },
+    {
+        name: "Sheet Metal Equipment",
+        specs: "Press brakes up to 100 tons, shears up to 3000mm"
+    }
+]
+---
+
+<Layout title={title}>
+    <Headercategory 
+        title={title}
+        content={content}
+        imglink="/images/metal-fabrication/header.jpg"
+    />
+
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:text-center">
+                <h2 class="text-base font-semibold leading-7 text-red-600">Advanced Manufacturing</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    Precision Metal Fabrication Solutions
+                </p>
+                <p class="mt-6 text-lg leading-8 text-gray-600">
+                    Our advanced manufacturing facility combines cutting-edge technology with skilled craftsmanship to deliver superior metal fabrication solutions.
+                </p>
+            </div>
+            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                    {features.map(feature => (
+                        <div class="flex flex-col">
+                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                                <img src={feature.icon} alt={feature.name} class="h-5 w-5 flex-none text-red-600" />
+                                {feature.name}
+                            </dt>
+                            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                                <p class="flex-auto">{feature.description}</p>
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-50 py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
+                <div class="mx-auto w-full max-w-xl lg:mx-0">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900">Capabilities & Equipment</h2>
+                    <p class="mt-6 text-lg leading-8 text-gray-600">
+                        Our state-of-the-art facility is equipped with advanced machinery and skilled personnel to handle diverse fabrication needs.
+                    </p>
+                    <div class="mt-8 max-w-xl text-base leading-7 text-gray-600">
+                        <ul role="list" class="mt-8 space-y-4 text-gray-600">
+                            {capabilities.map(capability => (
+                                <li class="flex gap-x-3">
+                                    <svg class="h-7 w-5 flex-none text-red-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                                    </svg>
+                                    {capability}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                <div class="mx-auto w-full max-w-xl lg:mx-0">
+                    <h3 class="text-xl font-bold tracking-tight text-gray-900 mb-6">Equipment Specifications</h3>
+                    <div class="grid grid-cols-1 gap-6">
+                        {equipment.map(item => (
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h4 class="text-lg font-semibold text-gray-900">{item.name}</h4>
+                                <p class="mt-2 text-gray-600">{item.specs}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-8">Our Fabrication Process</h2>
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="relative overflow-hidden rounded-lg">
+                    <img class="aspect-[3/2] w-full object-cover" src="/images/metal-fabrication/cnc-1.jpg" alt="CNC Machining" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0"></div>
+                    <div class="absolute bottom-0 p-4 text-white">
+                        <h3 class="text-lg font-semibold">CNC Machining</h3>
+                        <p class="text-sm">Precision machining for complex parts</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg">
+                    <img class="aspect-[3/2] w-full object-cover" src="/images/metal-fabrication/sheet-1.jpg" alt="Sheet Metal Work" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0"></div>
+                    <div class="absolute bottom-0 p-4 text-white">
+                        <h3 class="text-lg font-semibold">Sheet Metal Work</h3>
+                        <p class="text-sm">Custom fabrication solutions</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg">
+                    <img class="aspect-[3/2] w-full object-cover" src="/images/metal-fabrication/welding-1.jpg" alt="Welding" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0"></div>
+                    <div class="absolute bottom-0 p-4 text-white">
+                        <h3 class="text-lg font-semibold">Welding & Assembly</h3>
+                        <p class="text-sm">Expert welding services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout> 
