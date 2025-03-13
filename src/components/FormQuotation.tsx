@@ -1,6 +1,6 @@
 'use client'
-import React from 'react';
-import { Form, Input, Button, Select, Space, Upload, message } from 'antd';
+import React, { useState } from 'react';
+import { Form, Input, Button, Select, Space, Upload, message, AutoComplete } from 'antd';
 import type { UploadProps, SelectProps } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
@@ -24,7 +24,12 @@ const props: UploadProps = {
 };
 
 const options: SelectProps['options'] = [
-    { label: 'Stone', value: 'stone' },
+    { label: 'Metal Casting', value: 'metal-casting' },
+    { label: 'Metal Fabrication', value: 'metal-fabrication' },
+    { label: 'Ground Screws', value: 'ground-screws' },
+    { label: 'Quartz Stone', value: 'quartz-stone' },
+    { label: 'Rubber', value: 'rubber' },
+    { label: 'Plywood', value: 'plywood' },
 ];
 
 const selectBefore = (
@@ -56,7 +61,7 @@ const CatogerySelection: React.FC = () => (
             allowClear
             style={{ width: '100%' }}
             placeholder="Please select"
-            defaultValue={['stone']}
+            defaultValue={['metal-casting']}
             onChange={handleChange}
             options={options}
         />
@@ -64,6 +69,31 @@ const CatogerySelection: React.FC = () => (
 );
 
 const FormContact = () => {
+    const [options, setOptions] = useState<{ value: string }[]>([]);
+    
+    const onSearch = (searchText: string) => {
+        // Đây là danh sách các cảng phổ biến có thể xuất hiện khi người dùng nhập
+        const commonPorts = [
+            'Ho Chi Minh Port, Vietnam',
+            'Hai Phong Port, Vietnam',
+            'Da Nang Port, Vietnam',
+            'Shanghai Port, China',
+            'Singapore Port, Singapore',
+            'Rotterdam Port, Netherlands',
+            'Los Angeles Port, USA',
+            'New York Port, USA',
+            'Tokyo Port, Japan',
+            'Busan Port, South Korea',
+            'Hong Kong Port, China',
+        ];
+        
+        setOptions(
+            !searchText ? [] : commonPorts
+                .filter(port => port.toLowerCase().includes(searchText.toLowerCase()))
+                .map(port => ({ value: port })),
+        );
+    };
+
     return (
         <Form 
             layout="vertical"
@@ -113,7 +143,12 @@ const FormContact = () => {
 
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Form.Item label="Delivery port location" name="location" style={{ flex: 1, marginRight: '1rem' }}>
-                    <Input placeholder="" />
+                    <AutoComplete
+                        options={options}
+                        onSearch={onSearch}
+                        placeholder="Type to search for ports"
+                        style={{ width: '100%' }}
+                    />
                 </Form.Item>
             </div>
 
