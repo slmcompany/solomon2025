@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro'
-
+import HeaderDetail from '../../../components/HeaderDetail.astro'
 import Image from 'astro/components/Image.astro'
 
 const Products = Astro.props
@@ -45,6 +45,7 @@ const title = 'ProduThread Screw F Series'
 ---
 
 <Layout title={product.title}>
+	<HeaderDetail />
 	<div class="bg-white pt-14 sm:pt-10 md:pt-10 lg:pt-10">
 		<div class="mx-auto container">
 			<div class="flex flex-wrap">

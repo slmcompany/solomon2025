@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro'
-
+import HeaderDetail from '../../../components/HeaderDetail.astro'
 import Image from 'astro/components/Image.astro'
 
 const Products = Astro.props
@@ -59,6 +59,7 @@ const product = {
 ---
 
 <Layout title={product.title}>
+	<HeaderDetail />
 	<div class="bg-white pt-14 sm:pt-10 md:pt-10 lg:pt-10">
 		<div class="mx-auto container px-4 sm:px-6 lg:px-8">
 			<div class="flex flex-col lg:flex-row">
