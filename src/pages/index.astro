@@ -4,51 +4,84 @@ import Featurecat from '../components/Featurecat.astro'
 import Featureproduct from '../components/Featureproduct.astro'
 import Whyus from '../components/Whyus.astro'
 import Hero from '../components/Hero.astro'
+import { Image } from 'astro:assets';
+
+// Import các hình ảnh từ thư mục assets
+import metalCastingImg from '../assets/images/metal-casting-1-1.jpg';
+import metalFabricationImg from '../assets/images/machining-1-1.jpg';
+import groundScrewsImg from '../assets/images/ground_screws.jpg';
+import quartzStoneImg from '../assets/images/quad_stone.jpeg';
+import rubberImg from '../assets/images/rubber.jpg';
+import plywoodImg from '../assets/images/plywood.jpg';
 
 const featuretitle = 'Highlight Products'
 
 const products = [
 	{
 		title: 'METAL CASTING',
-		imageSrc: '/images/metal-casting-1-1.jpg',
+		imageSrc: metalCastingImg,
 		price: '$ 6.63/KGS',
 		link: '/metal-casting',
-		highlight: []
+		highlight: [],
+		width: 600,
+		height: 400,
+		format: 'webp',
+		alt: 'Metal Casting Product'
 	},
 	{
 		title: 'METAL FABRICATION',
-		imageSrc: '/images/machining-1-1.jpg',
+		imageSrc: metalFabricationImg,
 		price: '$ 8.84/KGS',
 		link: '/metal-fabrication',
-		highlight: []
+		highlight: [],
+		width: 600,
+		height: 400,
+		format: 'webp',
+		alt: 'Metal Fabrication Product'
 	},
 	{
 		title: 'GROUND SCREWS',
-		imageSrc: '/images/ground_screws.jpg',
+		imageSrc: groundScrewsImg,
 		price: '$ 6.63/KGS',
 		link: '/ground-screws',
-		highlight: []
+		highlight: [],
+		width: 600,
+		height: 400,
+		format: 'webp',
+		alt: 'Ground Screws Product'
 	},
 	{
 		title: 'QUARTZ STONE',
-		imageSrc: '/images/quad_stone.jpeg',
+		imageSrc: quartzStoneImg,
 		price: '$ 8.84/KGS',
 		link: '/quartz-stone',
-		highlight: []
+		highlight: [],
+		width: 600,
+		height: 400,
+		format: 'webp',
+		alt: 'Quartz Stone Product'
 	},
 	{
 		title: 'RUBBER',
-		imageSrc: '/images/rubber.jpg',
+		imageSrc: rubberImg,
 		price: '$ 8.84/KGS',
 		link: '/rubber',
-		highlight: []
+		highlight: [],
+		width: 600,
+		height: 400,
+		format: 'webp',
+		alt: 'Rubber Product'
 	},
 	{
 		title: 'PLYWOOD',
-		imageSrc: '/images/plywood.jpg',
+		imageSrc: plywoodImg,
 		price: '$ 8.84/KGS',
 		link: '/plywood',
-		highlight: []
+		highlight: [],
+		width: 600,
+		height: 400,
+		format: 'webp',
+		alt: 'Plywood Product'
 	}
 ]
 ---

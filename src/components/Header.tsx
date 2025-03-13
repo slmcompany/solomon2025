@@ -1,6 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, memo, lazy, Suspense, useCallback, useMemo } from 'react'
 import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react'
 import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import lodash from 'lodash'
+
+const { debounce } = lodash;
 
 const navigation = [
 	{ name: 'Metal Casting', href: '/metal-casting' },
@@ -83,7 +86,7 @@ const mobilenavigation: {
 // Định nghĩa CSS keyframes animation cho viền chạy với blur effect
 const redBorderKeyframes = ``;
 
-export default function Example() {
+const Header = memo(function HeaderComponent() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const [useLightLogo, setUseLightLogo] = useState(false)
 	const [isScrolled, setIsScrolled] = useState(false)
@@ -101,15 +104,16 @@ export default function Example() {
 		menuItemsRef.current = menuItemsRef.current.slice(0, navigation.length)
 	}, [])
 
+	// Sử dụng useCallback để tránh tạo lại hàm này mỗi khi render
+	const handleResize = useCallback(() => {
+		setScreenSize({
+			width: window.innerWidth,
+			height: window.innerHeight
+		})
+	}, [])
+
 	// Theo dõi kích thước màn hình
 	useEffect(() => {
-		const handleResize = () => {
-			setScreenSize({
-				width: window.innerWidth,
-				height: window.innerHeight
-			})
-		}
-
 		// Set up initial size
 		handleResize()
 
@@ -118,10 +122,10 @@ export default function Example() {
 		
 		// Clean up
 		return () => window.removeEventListener('resize', handleResize)
-	}, [])
+	}, [handleResize])
 
-	// Update hover div position and size when hoverIndex changes
-	useEffect(() => {
+	// Sử dụng useCallback để tối ưu hàm cập nhật hover
+	const updateHoverStyles = useCallback(() => {
 		if (hoverIndex !== null && menuItemsRef.current[hoverIndex]) {
 			const currentItem = menuItemsRef.current[hoverIndex]
 			if (currentItem) {
@@ -146,67 +150,101 @@ export default function Example() {
 		}
 	}, [hoverIndex, screenSize.width])
 
+	// Update hover div position and size when hoverIndex changes
 	useEffect(() => {
-		const handleScroll = () => {
-			const scrollPosition = window.scrollY
-			setIsScrolled(scrollPosition > 0)
-		}
+		updateHoverStyles();
+	}, [updateHoverStyles])
 
+	// Sử dụng useCallback để tối ưu hàm xử lý scroll
+	const handleScroll = useCallback(() => {
+		const scrollPosition = window.scrollY
+		setIsScrolled(scrollPosition > 0)
+	}, [])
+
+	useEffect(() => {
 		window.addEventListener('scroll', handleScroll)
 		return () => window.removeEventListener('scroll', handleScroll)
+	}, [handleScroll])
+
+	// Sử dụng useCallback và tối ưu hàm kiểm tra background
+	const checkBackground = useCallback(() => {
+		if (!headerRef.current) return
+
+		const header = headerRef.current
+		const headerRect = header.getBoundingClientRect()
+		const elementAtPoint = document.elementFromPoint(
+			headerRect.left + headerRect.width / 2,
+			headerRect.top + headerRect.height / 2
+		)
+
+		if (elementAtPoint) {
+			// Kiểm tra element và các parent của nó
+			let currentElement: Element | null = elementAtPoint
+			while (currentElement) {
+				// Kiểm tra các class hoặc id liên quan đến hero, banner, hoặc section có background
+				const hasBackgroundSection = 
+					currentElement.classList.contains('hero') ||
+					currentElement.classList.contains('banner') ||
+					currentElement.classList.contains('bg-section') ||
+					currentElement.classList.contains('has-background') ||
+					currentElement.id.includes('hero') ||
+					currentElement.id.includes('banner') ||
+					// Kiểm tra inline style background-image
+					currentElement.hasAttribute('style') &&
+					currentElement.getAttribute('style')?.includes('background-image')
+				
+				if (hasBackgroundSection) {
+					setUseLightLogo(true)
+					return
+				}
+				currentElement = currentElement.parentElement
+			}
+			setUseLightLogo(false)
+		}
 	}, [])
 
 	useEffect(() => {
-		const checkBackground = () => {
-			if (!headerRef.current) return
-
-			const header = headerRef.current
-			const headerRect = header.getBoundingClientRect()
-			const elementAtPoint = document.elementFromPoint(
-				headerRect.left + headerRect.width / 2,
-				headerRect.top + headerRect.height / 2
-			)
-
-			if (elementAtPoint) {
-				// Kiểm tra element và các parent của nó
-				let currentElement: Element | null = elementAtPoint
-				while (currentElement) {
-					// Kiểm tra các class hoặc id liên quan đến hero, banner, hoặc section có background
-					const hasBackgroundSection = 
-						currentElement.classList.contains('hero') ||
-						currentElement.classList.contains('banner') ||
-						currentElement.classList.contains('bg-section') ||
-						currentElement.classList.contains('has-background') ||
-						currentElement.id.includes('hero') ||
-						currentElement.id.includes('banner') ||
-						// Kiểm tra inline style background-image
-						currentElement.hasAttribute('style') &&
-						currentElement.getAttribute('style')?.includes('background-image')
-					
-					if (hasBackgroundSection) {
-						setUseLightLogo(true)
-						return
-					}
-					currentElement = currentElement.parentElement
+		// Chạy kiểm tra khi scroll nhưng với debounce để giảm số lần gọi
+		const debouncedCheck = debounce(checkBackground, 50);
+		window.addEventListener('scroll', debouncedCheck);
+		
+		// Chạy kiểm tra ban đầu
+		checkBackground();
+		
+		// Tối ưu: thay vì interval 100ms, sử dụng requestAnimationFrame 
+		// chỉ khi cần thiết (khi người dùng đang scroll)
+		let rafId: number;
+		let isScrolling = false;
+		
+		const handleScrollStart = () => {
+			isScrolling = true;
+			
+			const checkIfScrolling = () => {
+				if (isScrolling) {
+					checkBackground();
+					rafId = requestAnimationFrame(checkIfScrolling);
 				}
-				setUseLightLogo(false)
-			}
-		}
-
-		// Chạy kiểm tra mỗi 100ms để đảm bảo bắt được thay đổi
-		const interval = setInterval(checkBackground, 100)
-
-		// Chạy kiểm tra khi scroll
-		window.addEventListener('scroll', checkBackground)
-
-		// Chạy kiểm tra ngay lập tức
-		checkBackground()
+			};
+			
+			checkIfScrolling();
+		};
+		
+		const handleScrollEnd = debounce(() => {
+			isScrolling = false;
+			cancelAnimationFrame(rafId);
+			checkBackground(); // Kiểm tra cuối cùng khi scroll dừng
+		}, 100);
+		
+		window.addEventListener('scroll', handleScrollStart);
+		window.addEventListener('scroll', handleScrollEnd);
 
 		return () => {
-			clearInterval(interval)
-			window.removeEventListener('scroll', checkBackground)
-		}
-	}, [])
+			window.removeEventListener('scroll', debouncedCheck);
+			window.removeEventListener('scroll', handleScrollStart);
+			window.removeEventListener('scroll', handleScrollEnd);
+			cancelAnimationFrame(rafId);
+		};
+	}, [checkBackground]);
 
 	return (
 		<>
@@ -419,4 +457,6 @@ export default function Example() {
 			</header>
 		</>
 	)
-}
+})
+
+export default Header

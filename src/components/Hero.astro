@@ -1,9 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import heroBackground from '../assets/images/casting.jpg';
+import manufacturingImage from '../assets/images/Group-29_1abeba94c4dd542e60c1191bb73ca2f2.png';
+---
+
 <div class="relative isolate overflow-hidden">
 	<div class="absolute inset-0">
-		<img
-			src="/images/casting.jpg"
-			alt="Background"
+		<Image
+			src={heroBackground}
+			alt="Metal Casting Background"
 			class="h-full w-full object-cover"
+			width={1920}
+			height={1080}
+			format="avif"
+			quality={90}
+			loading="eager"
+			fetchpriority="high"
 		/>
 		<div class="absolute inset-0 bg-gray-900/70 mix-blend-multiply"></div>
 	</div>
@@ -28,10 +40,14 @@
 		</div>
 		<div class="mx-auto flex justify-center items-center hidden md:flex">
 			<div class="max-h-[700px] w-full">
-				<img
-					src="/images/Group-29_1abeba94c4dd542e60c1191bb73ca2f2.png"
+				<Image
+					src={manufacturingImage}
 					alt="Manufacturing facility"
 					class="h-full w-full object-contain max-h-[700px]"
+					width={500}
+					height={700}
+					quality={90}
+					format="webp"
 				/>
 			</div>
 		</div>

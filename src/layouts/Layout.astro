@@ -29,11 +29,73 @@ import "@fontsource/roboto-flex";
             gtag("config", "G-VNYXEPHQKW");
         </script> -->
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
+        <meta name="description" content="Professional manufacturing and trading company specialized in quality products" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="sitemap" href="/sitemap-index.xml" />
         <meta name="generator" content={Astro.generator} />
+        
+        <!-- Performance optimizations -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preload" href="/fonts/roboto-flex-latin.woff2" as="font" type="font/woff2" crossorigin />
+        
+        <!-- Enable HTTP/2 Server Push -->
+        <link rel="preload" href="/images/hero-image.jpg" as="image" />
+        
+        <!-- Preload critical assets -->
+        <link rel="modulepreload" href="/assets/index.js" />
+        
+        <!-- Specifying image formats -->
+        <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width, ECT, RTT, Downlink, Device-Memory" />
+
+        <!-- Image performance hints -->
+        <meta name="theme-color" content="#ffffff" />
+        
+        <!-- Add Web Vitals monitoring -->
+        <script is:inline>
+            // Đơn giản hóa việc theo dõi Web Vitals
+            document.addEventListener('DOMContentLoaded', function() {
+                // Khi LCP hoàn thành
+                if ('PerformanceObserver' in window) {
+                    try {
+                        // Theo dõi Largest Contentful Paint
+                        new PerformanceObserver(function(entryList) {
+                            const entries = entryList.getEntries();
+                            const lastEntry = entries[entries.length - 1];
+                            console.log('LCP:', lastEntry.startTime);
+                        }).observe({type: 'largest-contentful-paint', buffered: true});
+                        
+                        // Theo dõi Cumulative Layout Shift
+                        let clsValue = 0;
+                        new PerformanceObserver(function(entryList) {
+                            for (const entry of entryList.getEntries()) {
+                                // Chỉ sử dụng thuộc tính gián tiếp để tránh lỗi TypeScript
+                                if (!entry.hadRecentInput) {
+                                    const value = entry['value'];
+                                    if (typeof value === 'number') {
+                                        clsValue += value;
+                                        console.log('CLS update:', clsValue);
+                                    }
+                                }
+                            }
+                        }).observe({type: 'layout-shift', buffered: true});
+                        
+                        // Theo dõi First Input Delay
+                        new PerformanceObserver(function(entryList) {
+                            const firstInput = entryList.getEntries()[0];
+                            if (firstInput) {
+                                const delay = firstInput.processingStart - firstInput.startTime;
+                                console.log('FID:', delay);
+                            }
+                        }).observe({type: 'first-input', buffered: true});
+                    } catch (e) {
+                        console.error('Web Vitals monitoring error:', e);
+                    }
+                }
+            });
+        </script>
+        
         <ViewTransitions />
 
         <title>{title}</title>
@@ -63,6 +125,7 @@ import "@fontsource/roboto-flex";
         font-family: "Roboto Flex", system-ui, sans-serif;
         background: #13151a;
         background-size: 224px;
+        scroll-behavior: smooth;
     }
     h1 {
         font-family: "Roboto Flex", system-ui, sans-serif;
@@ -80,5 +143,16 @@ import "@fontsource/roboto-flex";
             Bitstream Vera Sans Mono,
             Courier New,
             monospace;
+    }
+    
+    /* Add font display swap for better performance */
+    @font-face {
+        font-family: 'Roboto Flex';
+        font-display: swap;
+    }
+    
+    /* Optimize images */
+    img, image {
+        content-visibility: auto;
     }
 </style>

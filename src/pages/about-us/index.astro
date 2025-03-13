@@ -1,12 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import Image from 'astro/components/Image.astro'
+import { Image as AstroImage } from 'astro:assets';
+import headerImage from '../../assets/images/shipping-and-importing-header.jpg';
+import capabilitiesImage from '../../assets/images/Capabilities-400x267.jpg';
+import solomonLogo from '../../assets/images/logo-solomon-white.png';
 
 ---
 
 <Layout title="About Us">
     <div class="relative">
-        <img src="/images/shipping-and-importing-header.jpg" alt="About Us Header" class="w-full h-[300px] md:h-[400px] object-cover"/>
+        <AstroImage 
+            src={headerImage} 
+            alt="About Us Header" 
+            class="w-full h-[300px] md:h-[400px] object-cover"
+            width={1920}
+            height={400}
+            format="webp"
+            quality={85}
+        />
         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <h1 class="text-white text-3xl md:text-5xl font-light">About Us</h1>
         </div>
@@ -97,9 +108,27 @@ import Image from 'astro/components/Image.astro'
             <!-- Metal Alloy Casting Card -->
             <div class="bg-white rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 border-[#b42026] overflow-hidden">
                 <div class="h-48 md:h-full relative">
-                    <img src="/images/Capabilities-400x267.jpg" alt="Metal Alloy Capabilities" class="w-full h-full object-cover"/>
+                    <AstroImage 
+                        src={capabilitiesImage} 
+                        alt="Metal Alloy Capabilities" 
+                        class="w-full h-full object-cover"
+                        width={400}
+                        height={267}
+                        format="webp"
+                        quality={85}
+                        loading="lazy"
+                    />
                     <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-                        <img src="/images/logo-solomon-white.png" alt="Solomon Industries Logo" class="w-1/2 max-w-[200px]"/>
+                        <AstroImage 
+                            src={solomonLogo} 
+                            alt="Solomon Industries Logo" 
+                            class="w-1/2 max-w-[200px]"
+                            width={200}
+                            height={60}
+                            format="webp"
+                            quality={85}
+                            loading="lazy"
+                        />
                     </div>
                 </div>
             </div>

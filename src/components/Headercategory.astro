@@ -1,9 +1,22 @@
 ---
 const { title, content, imglink } = Astro.props;
+import { Image } from 'astro:assets';
 ---
 
 <div class="bg-white  xl:hidden lg:hidden md:hidden">
-    <img src={imglink} alt={title} class="w-full object-cover h-[40vh]" />
+    {typeof imglink === 'string' ? (
+        <img src={imglink} alt={title} class="w-full object-cover h-[40vh]" />
+    ) : (
+        <Image 
+            src={imglink} 
+            alt={title} 
+            class="w-full object-cover h-[40vh]"
+            width={1200}
+            height={600}
+            format="webp"
+            quality={80}
+        />
+    )}
 </div>
 <div class="overflow-hidden bg-red-700 py-12 sm:py-24 lg:py-32">
     <div class="mx-auto container px-4 sm:px-6 lg:px-8">
@@ -26,13 +39,25 @@ const { title, content, imglink } = Astro.props;
               <div class="relative isolate overflow-hidden bg-red-700 px-6 pt-8 sm:rounded-3xl sm:px-10 sm:pt-12 lg:px-0">
                 <div class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white" aria-hidden="true"></div>
                 <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                  <img 
-                    src={imglink} 
-                    alt={title} 
-                    width="2432" 
-                    height="1442" 
-                    class="-mb-12 w-full max-w-none rounded-xl bg-gray-800 ring-1 ring-white/10 shadow-2xl"
-                  >
+                  {typeof imglink === 'string' ? (
+                    <img 
+                      src={imglink} 
+                      alt={title} 
+                      width="2432" 
+                      height="1442" 
+                      class="-mb-12 w-full max-w-none rounded-xl bg-gray-800 ring-1 ring-white/10 shadow-2xl"
+                    />
+                  ) : (
+                    <Image 
+                      src={imglink} 
+                      alt={title} 
+                      width={2432}
+                      height={1442}
+                      format="webp"
+                      quality={85}
+                      class="-mb-12 w-full max-w-none rounded-xl bg-gray-800 ring-1 ring-white/10 shadow-2xl"
+                    />
+                  )}
                 </div>
                 <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
               </div>

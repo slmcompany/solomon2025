@@ -11,6 +11,20 @@ import playformCompress from "@playform/compress";
 export default defineConfig({
   image: {
     domains: ["api.slmglobal.vn"],
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
+    format: ["avif", "webp"],
+    remotePatterns: [{ protocol: "https" }],
+    cacheDir: ".astro/cache/images",
+    logLevel: "silent",
+    defaults: {
+      quality: 80,
+      densities: [1, 2],
+      loading: "lazy",
+      decoding: "async",
+      fadeInTransition: false,
+    },
   },
   site: "https://slmglobal.vn",
   integrations: [
@@ -34,4 +48,13 @@ export default defineConfig({
       },
     }),
   ],
+  compressHTML: true,
+  build: {
+    inlineStylesheets: "auto",
+    assets: "assets",
+  },
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport",
+  },
 });

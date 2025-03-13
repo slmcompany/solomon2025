@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logoWhite from '../assets/images/logo-solomon-white.png';
 
 const links = [
 	{
@@ -31,7 +33,15 @@ const links = [
 		<div class="xl:grid xl:grid-cols-2 xl:gap-12">
 			<div class="space-y-8">
 				<div>
-					<img src="/images/logo-solomon-white.png" alt="SOLOMON INDUSTRIES LLC" class="h-12 w-auto" />
+					<Image 
+						src={logoWhite} 
+						alt="SOLOMON INDUSTRIES LLC" 
+						class="h-12 w-auto" 
+						width={200}
+						height={48}
+						format="webp"
+						loading="lazy"
+					/>
 				</div>
 				<dl class="space-y-6 text-base leading-7 text-white">
 					<div class="flex gap-x-4">

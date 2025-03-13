@@ -1,5 +1,6 @@
 ---
 const { products, featuretitle } = Astro.props;
+import { Image } from 'astro:assets';
 ---
 
 <div class="bg-slate-100 pb-28">
@@ -58,10 +59,16 @@ const { products, featuretitle } = Astro.props;
                                 </li>
                             </ul>
                             <a href={product.link}>
-                                <img
-                                    class="rounded-2xl mx-auto aspect-[1/1] w-full "
+                                <Image 
+                                    class="rounded-2xl mx-auto aspect-[1/1] w-full"
                                     src={product.imageSrc}
-                                    alt=""
+                                    width={product.width}
+                                    height={product.height}
+                                    alt={product.alt}
+                                    format={product.format}
+                                    loading="lazy"
+                                    densities={[1, 2]}
+                                    quality={80}
                                 />
                             </a>
 
